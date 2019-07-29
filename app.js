@@ -1,30 +1,24 @@
-// TODO
-var groceryItems = [{food: 'cough drops'}, {food: 'cucumbers'}, {food: 'chocolate'}];
 
-var GroceryListItem = (props) =>
-  return <li >{props.food}</li>
-);
+function GroceryListItem(props) {
+  return <li >{props.value}</li>;
+}
 
-var GroceryList = (props) => {
-  var items = props.food;
+function GroceryList(props) {
+  var items = props.listItem;
   var listItems = items.map((item) =>
-    <GroceryListItem key={food} value={food.item} />
+    <GroceryListItem key={item}
+                     value={item} />
   );
   return (
     <ul>
       {listItems}
     </ul>
   );
-};
+}
 
-var App = () => (
-  <div>
-    <h2>Grocery List</h2>
-    <GroceryList />
-  </div>
-);
 
+var anything = ['cough drops', 'cucumbers', 'chocolate', 'increase'];
 ReactDOM.render(
-  <App />,
-  document.getElementById("app")
+  <GroceryList listItem={anything} />,
+  document.getElementById('app')
 );
