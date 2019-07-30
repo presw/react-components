@@ -1,10 +1,13 @@
 
+var items = ['cough drops', 'cucumbers', 'chocolate', 'increase'];
+
 function GroceryListItem(props) {
   return <li >{props.value}</li>;
 }
 
 function GroceryList(props) {
-  var items = props.listItem;
+
+  var items = props.items;
   var listItems = items.map((item) =>
     <GroceryListItem key={item}
                      value={item} />
@@ -16,9 +19,16 @@ function GroceryList(props) {
   );
 }
 
+function App() {
+  return (
+    <div>
+      <h2>Grocery List</h2>
+      <GroceryList items={items} />
+    </div>
+  )
+}
 
-var anything = ['cough drops', 'cucumbers', 'chocolate', 'increase'];
 ReactDOM.render(
-  <GroceryList listItem={anything} />,
+  <App />,
   document.getElementById('app')
 );
